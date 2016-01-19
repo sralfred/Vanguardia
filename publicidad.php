@@ -2,10 +2,10 @@
 
  <form class="col s12" method = "POST" action="guardar_publicidad.php">
 
-  <h3>Nombre de la publicidad<h3>      
+  <h3>Link de la imagen<h3>      
     <input type="text" class="validate" name = "nombre" id = "nombre">
     <br/>
-    <h3>Link de la imagen<h3>
+    <h3>Nombre de la publicidadh3>
       <input type="text" class="validate" name = "imagen" id = "imagen">
       <br/>
     <h3>Posicion<h3>
