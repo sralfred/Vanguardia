@@ -27,24 +27,23 @@
   </nav>
 
   <!--Publicidad-->
-  <div style="width: 100%; height:20%">    
+  <div style="width: 100%; height:20%">
     <!--Imagen-->
     <div style="float: left; width:15%; heigth:90%; margin-top: 2%; margin-left: 1%">
       <img src="lgo.png" WIDTH=260 HEIGHT=200>
     </div>
     <!--publicidad-->
-      <div style="float: right; width: 60%; height: 90%;  margin-top: 2%; margin-right:15%">
+      <div style="float: right; width: 60%; height: 100%;  margin-top: 2%; margin-right:15%">
         <table style="height: 100%">
           <td bgcolor="gray">
-            
-              <?php
+ <?php
               require('config.php');
               $query = "SELECT id, imagen, nombre, posicion from publicidad where posicion = 'arriba' ORDER BY rand() limit 1";
               $resultado = $sql->query($query);
               $text = $resultado->fetch_assoc()
               ?>
-         
-          <img src=" <?php echo $text['nombre']; ?>" width=100% height=25%>
+
+          <img src=" <?php echo $text['nombre']; ?>" width=800 height=150>
 
 
 
@@ -57,7 +56,7 @@
 
   <!--TABS!!!!!!!!!!!!!!!!!!-->
   <br /><br /><br /><br />
-  
+
     <div class="row" style="width: 100%; height: 5%">
       <center>
       <ul class=" pagination" style = "margin-left:5%">
@@ -72,7 +71,7 @@
 
   <br /><br />
 
-  <!--Div principal-->
+ <!--Div principal-->
 
   <!--slider-->
 
@@ -99,12 +98,10 @@
     </ul>
   </div>
 
-
-
   <!--primera tarjeta-->
   <?php
      require('config.php');
-     $titulo = $_GET['titulo'];
+     $categoria = $_GET['titulo'];
 
      $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto FROM noticias WHERE id = '$titulo'";
      $resultado = $sql->query($query);
@@ -126,27 +123,24 @@
 
         <i class="material-icons right">more_vert</i></span>
 
-
-       
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">
 
 
-          <?php echo $text['titulo_afuera']; ?>                
+          <?php echo $text['titulo_afuera']; ?>
 
           <i class="material-icons right">close</i></span>
           <p>
 
-<iframe class="scribd_iframe_embed" src="<?php echo $text['texto'];?>content?start_page=1&view_mode=scroll&show_recommendations=true" 
-data-auto-height="false" data-aspect-ratio="undefined" scrolling="no" id="doc_91412" width="100%" height="5000" frameborder="0"></iframe>
+
+<iframe class="scribd_iframe_embed" src="<?php echo $text['texto']; ?>/content?start_page=1&view_mode=scroll&access_key=key-tenngfu8PHE2eejhLISm&show_recommendations=true" data-auto-height="false" data-aspect-ratio="0.7729220222793488" scrolling="no" id="doc_918" width="100%" height="1900" frameborder="0"></iframe>
 
           </p>
         </div>
       </div>
 
     </div>
-
 
 
     <!--publicidad de la dereca-->
@@ -156,16 +150,14 @@ data-auto-height="false" data-aspect-ratio="undefined" scrolling="no" id="doc_91
               <?php
               require('config.php');
               $query = "SELECT id, imagen, nombre, posicion from publicidad where posicion = 'derecha' ORDER BY rand() limit 1";
-              $resultado = $sql->query($query);
-              $text = $resultado->fetch_assoc()
+              $resultado2 = $sql->query($query);
+              $text2 = $resultado2->fetch_assoc()
               ?>
-         
-          <img src=" <?php echo $text['nombre']; ?>" width=100% height=100%>
+
+          <img src=" <?php echo $text2['nombre']; ?>" width=100% height=100%>
 
       </td>
     </table>
   </div>
-
-</div>
 
 </html>
