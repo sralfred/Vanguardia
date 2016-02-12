@@ -1,6 +1,6 @@
 <html>
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="css/movil.css"  media="screen,projection"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -19,9 +19,6 @@
     <div class="nav-wrapper indigo darken-4">
       <a href="#" class="brand-logo right">VANGUARDIA </a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="https://www.facebook.com/Vanguardia-Magazine-449343441935653/?ref=hl" target="_blank">F</a></li>
-        <li><a href="https://twitter.com/magazineLV" target="_blank">Tw</a></li>
-        <li><a href="https://www.youtube.com/channel/UCP-VkyFmuhLWmY3f3qRc3fA" target="_blank">YT</a></li>
       </ul>
     </div>
   </nav>
@@ -30,7 +27,7 @@
   
 
     <!--publicidad-->
-     <div style="width: 80%; height: 20%; float:left; margin-right: 10%;  margin-left: 10%; margin-down: 25%; margin-top: 5%">
+     <div class="publicidadsize publicidadsize2 publicidadsize3 publicidadsize4 publicidadsize5">
         <table style="height: 100%">
           <td bgcolor="gray">
             
@@ -49,11 +46,8 @@
 
 
   <!--TABS!!!!!!!!!!!!!!!!!!-->
-  <br /><br /><br /><br />
-    <br /><br /><br /><br />
-
       <center>
-      <ul class=" pagination" style = "margin-top: 7%">
+      <ul class=" pagination" style = "margin-top: 18%">
         <li><a href="movil.php?set=deportes&pag=1"><i class="material-icons">schedule</i> Deportes</li>
         <li><a href="movil.php?set=social&pag=1"><i class="material-icons">contacts</i>Cultura</a></li>
         <li><a href="movil.php?set=gobierno&pag=1"><i class="material-icons">work</i>Vanguardia Hoy</a></li>
@@ -89,7 +83,7 @@
 <!--Tarjetas-->
 
 <!--Primera tarjeta-->
-    <div id="Deportes" class="col s12" style="width: 85%; height: 65%; float:left; margin-right: 7.5%;  margin-left: 7.5%; margin-down: 50%">
+    <div id="Deportes" class="col s12 tamano1 tamano2 tamano3 tamano4 tamano5 tamano6 tamano7"  style = "margin-top: 1%">
      <?php $text = $resultado->fetch_assoc();?>
     
        <div class="card">
@@ -117,18 +111,18 @@
 
 <!--Publicidad-->
 
-     <div style="width: 70%; height: 25%; float:left; margin-right: 15%;  margin-left: 15%; margin-down: 25%; margin-top: 25%">
+     <div class="psize5 psize4 psize3 psize2 psize1" style="margin-top: 25%">
         <table style="height: 100%">
           <td bgcolor="gray">
             
               <?php
               require('config.php');
-              $query = "SELECT id, imagen, nombre, posicion from publicidad where posicion = 'arriba' ORDER BY rand() limit 1";
-              $resultado = $sql->query($query);
-              $text = $resultado->fetch_assoc()
+              $query2 = "SELECT id, imagen, nombre, posicion from publicidad where posicion = 'arriba' ORDER BY rand() limit 1";
+              $resultado2 = $sql->query($query2);
+              $text2 = $resultado2->fetch_assoc()
               ?>
          
-          <img src=" <?php echo $text['nombre']; ?>" width=100% height=25%>
+          <img src=" <?php echo $text2['nombre']; ?>" width=100% height=25%>
 
           </td>
         </table>
@@ -137,7 +131,7 @@
 
 
 <!--Segunda tarjeta-->
-    <div id="Deportes" class="col s12" style="width: 70%; height: 70%; float:left; margin-right: 15%;  margin-left: 15%; margin-top:12%">
+    <div id="Deportes" class="col s12 tamano1 tamano2 tamano3 tamano4 tamano5 tamano6 tamano7"  style = "margin-top: 10%" >
      <?php $text = $resultado->fetch_assoc();?>
     
        <div class="card">
@@ -163,8 +157,8 @@
     </div>
     </div>
 
-<!--Segunda tarjeta-->
-    <div id="Deportes" class="col s12" style="width: 70%; height: 70%; float:left; margin-right: 15%;  margin-left: 15%; margin-top:20%">
+<!--Tercera tarjeta-->
+    <div id="Deportes" class="col s12 tamano1 tamano2 tamano3 tamano4 tamano5 tamano6 tamano7"  style = "margin-top: 25%">
      <?php $text = $resultado->fetch_assoc();?>
     
        <div class="card">
@@ -211,6 +205,8 @@
           </ul>
 
         </div>
+
+
 
       </body>
       </html>
