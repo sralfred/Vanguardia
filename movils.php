@@ -91,15 +91,24 @@
           <i class="material-icons right">close</i></span>
           <p>
               <iframe class="scribd_iframe_embed" src="<?php echo $text['texto'];?>content?start_page=1&view_mode=scroll&show_recommendations=true" 
-              data-auto-height="false" data-aspect-ratio="undefined" scrolling="no" id="doc_91412" width="100%" height="5000" frameborder="0"></iframe>
+              data-auto-height="false" data-aspect-ratio="0.7729220222793488" scrolling="no" id="doc_91412" width="100%" height="5000" frameborder="0"></iframe>
           </p>
       </div>
     </div>
     </div>
 
+
+
+<p  style=" margin: 1px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block;">   
+ <iframe class="scribd_iframe_embed" 
+   src="https://www.scribd.com/embeds/296119085/content?start_page=1&view_mode=scroll&access_key=key-tenngfu8PHE2eejhLISm&show_recommendations=true" 
+   data-auto-height="false" data-aspect-ratio="0.7729220222793488" scrolling="no" id="doc_80386" width="100%" height="600" frameborder="0"></iframe>
+
+
+
 <!--Publicidad-->
 
-     <div class="psize5 psize4 psize3 psize2 psize1" style="margin-top: 25%">
+     <div class="psize5 psize4 psize3 psize2 psize1 psize6 psize7" style="margin-top: 25%">
         <table style="height: 100%">
           <td bgcolor="gray">
             

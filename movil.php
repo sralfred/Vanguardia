@@ -102,8 +102,8 @@
           <?php echo $text['titulo_afuera']; ?>                
           <i class="material-icons right">close</i></span>
           <p>
-              <iframe class="scribd_iframe_embed" src="<?php echo $text['texto'];?>content?start_page=1&view_mode=scroll&show_recommendations=true" 
-              data-auto-height="false" data-aspect-ratio="undefined" scrolling="no" id="doc_91412" width="100%" height="5000" frameborder="0"></iframe>
+              <iframe class="scribd_iframe_embed" src="<?php echo $text['texto'];?>content?start_page=1&view_mode=scroll&show_recommendations=false" 
+              data-auto-height="false" data-aspect-ratio="undefined" scrolling="no" id="doc_91412" width="90%" height="5000" frameborder="0"></iframe>
           </p>
       </div>
     </div>
@@ -111,7 +111,7 @@
 
 <!--Publicidad-->
 
-     <div class="psize5 psize4 psize3 psize2 psize1" style="margin-top: 25%">
+     <div class="psize5 psize4 psize3 psize2 psize1 psize6 psize7" >
         <table style="height: 100%">
           <td bgcolor="gray">
             
@@ -131,7 +131,7 @@
 
 
 <!--Segunda tarjeta-->
-    <div id="Deportes" class="col s12 tamano1 tamano2 tamano3 tamano4 tamano5 tamano6 tamano7"  style = "margin-top: 10%" >
+    <div id="Deportes" class="col s12 tamano1 tamano2 tamano3 tamano4 tamano5 tamano6 tamano7" >
      <?php $text = $resultado->fetch_assoc();?>
     
        <div class="card">
@@ -158,7 +158,7 @@
     </div>
 
 <!--Tercera tarjeta-->
-    <div id="Deportes" class="col s12 tamano1 tamano2 tamano3 tamano4 tamano5 tamano6 tamano7"  style = "margin-top: 25%">
+    <div id="Deportes" class="col s12 tamano1 tamano2 tamano3 tamano4 tamano5 tamano6 tamano7 margen7 margen2 margen1 margen3 margen4 margen5">
      <?php $text = $resultado->fetch_assoc();?>
     
        <div class="card">
