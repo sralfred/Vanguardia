@@ -42,10 +42,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 			});
 </script>
-
-<link rel="shortcut icon" href="logo.ico" />
-
-
 </head>
 <body>
 
@@ -174,14 +170,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">
-						<img src=" <?php echo $text['imagen']; ?>"/></a>
+						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Deportes</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -190,13 +185,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <?php $text = $resultado->fetch_assoc();?>
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>"/></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Deportes</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -221,13 +216,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="s-grid-small">
 					
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 
 					<div class="sc-text">
 						<h6>Cultura</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -237,13 +232,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <?php $text = $resultado->fetch_assoc();?>
 				<div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Cultura</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -277,13 +272,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src=" <?php echo $text['imagen']; ?>  " alt="" /></a>
+						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>  " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Vangurdia Hoy</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -293,13 +288,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>   " alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>   " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Vanguardia Hoy</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -326,13 +321,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="s-grid-small">
 					
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src=" <?php echo $text['imagen']; ?>   " alt="" /></a>
+						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>   " alt="" /></a>
 					</div>
 
 					<div class="sc-text">
 						<h6>Columna</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"> <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html"> <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -343,13 +338,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>  " alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>  " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>Columna/h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<h6>football</h6>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -385,13 +380,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Varios</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -401,13 +396,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Varios</h6>
-						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?> </a>
-						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?> </a>
+						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>

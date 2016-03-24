@@ -112,20 +112,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   <?php
   require('config.php');
+  $categoria = $_GET['set'];
   $titulo = $_GET['titulo'];
-  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE id='$titulo'";
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE id = '$titulo'";
   $resultado = $sql->query($query);
+  $text = $resultado->fetch_assoc()
   ?>
 
 		<div class="wrap">
 			<div class="col-md-8">
 
-
-<iframe class="scribd_iframe_embed" src="<?php echo $text['texto'];?>content?start_page=1&view_mode=scroll&access_key=key-z5bhesdo5thj1uebx1&show_recommendations=true" 
-data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_83874" width="100%" height="600" frameborder="0"></iframe>
-
-
-
+				<iframe class="scribd_iframe_embed" src="<?php echo $text['texto']; ?>content?start_page=1" 
+				data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_75950" width="100%" 
+				height="500" frameborder="0"></iframe>
 
 			</div>
 		</div>
@@ -146,31 +145,48 @@ data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_83874" 
 
 
 
-
-<!--Dos noticias de deportes -->
-  <?php
+<?php
   require('config.php');
-  $categoria = $_GET['set'];
-  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='$categoria'";
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='$categoria' ORDER BY id DESC";
   $resultado = $sql->query($query);
   $text = $resultado->fetch_assoc()
   ?>
 
 
+
+
+
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
-			<header><h3 class="title-head">Deportes</h3></header>
+			<header><h3 class="title-head"> 
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";							
+							?>
+
+			</h3></header>
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>"/></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src=" <?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>Deportes</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+							?>
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -179,13 +195,22 @@ data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_83874" 
 <?php $text = $resultado->fetch_assoc();?>
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>"/></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>Deportes</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+							?>
+
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -205,13 +230,22 @@ data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_83874" 
 				<div class="s-grid-small">
 					
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 
 					<div class="sc-text">
-						<h6>Cultura</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<h6>
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+
+							?>
+						</h6>
+
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -221,13 +255,23 @@ data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_83874" 
 <?php $text = $resultado->fetch_assoc();?>
 				<div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>Cultura</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+
+							?>
+
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -237,6 +281,266 @@ data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_83874" 
 				
 				<div class="clearfix"></div>
 </div>
+
+
+
+
+
+
+
+
+<?php $text = $resultado->fetch_assoc();?>
+
+<div class="sports-top" style="margin-left: 10px">
+	<div class="s-grid-left">
+		<div class="cricket">
+			<header><h3 class="title-head"> .</h3></header>
+
+			 <div class="s-grid-small">
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src=" <?php echo $text['imagen']; ?>"/></a>
+					</div>
+					
+					<div class="sc-text">
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+							?>
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+			</div>
+
+<?php $text = $resultado->fetch_assoc();?>
+			 <div class="s-grid-small">
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>"/></a>
+					</div>
+					
+					<div class="sc-text">
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+							?>
+
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+			</div>
+	    </div>
+	</div>
+
+			
+<!--Dos noticias de cultura -->
+
+  <?php $text = $resultado->fetch_assoc() ?>
+
+	<div class="s-grid-right">
+		<div class="cricket">
+				<header><h3 class="title-head"> .  </h3></header>
+
+				<div class="s-grid-small">
+					
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+					</div>
+
+					<div class="sc-text">
+						<h6>
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+
+							?>
+						</h6>
+
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+				
+				</div>
+				
+<?php $text = $resultado->fetch_assoc();?>
+				<div class="s-grid-small">
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+					</div>
+					
+					<div class="sc-text">
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+
+							?>
+
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+				</div>
+		</div>
+	</div>
+				
+				<div class="clearfix"></div>
+</div>
+
+
+
+
+
+
+
+
+<?php $text = $resultado->fetch_assoc();?>
+
+<div class="sports-top" style="margin-left: 10px">
+	<div class="s-grid-left">
+		<div class="cricket">
+			<header><h3 class="title-head"> .</h3></header>
+
+			 <div class="s-grid-small">
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src=" <?php echo $text['imagen']; ?>"/></a>
+					</div>
+					
+					<div class="sc-text">
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+							?>
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+			</div>
+
+<?php $text = $resultado->fetch_assoc();?>
+			 <div class="s-grid-small">
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>"/></a>
+					</div>
+					
+					<div class="sc-text">
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+							?>
+
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+			</div>
+	    </div>
+	</div>
+
+			
+<!--Dos noticias de cultura -->
+
+  <?php $text = $resultado->fetch_assoc() ?>
+
+	<div class="s-grid-right">
+		<div class="cricket">
+				<header><h3 class="title-head"> .  </h3></header>
+
+				<div class="s-grid-small">
+					
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+					</div>
+
+					<div class="sc-text">
+						<h6>
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+
+							?>
+						</h6>
+
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+				
+				</div>
+				
+<?php $text = $resultado->fetch_assoc();?>
+				<div class="s-grid-small">
+					<div class="sc-image">
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+					</div>
+					
+					<div class="sc-text">
+						<h6>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								else echo "$categoria";	
+
+							?>
+
+						</h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
+					</div>
+					
+					<div class="clearfix"></div>
+				</div>
+		</div>
+	</div>
+				
+				<div class="clearfix"></div>
+</div>
+
+
+
+
+
+
+
+
 
 
 
