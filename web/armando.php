@@ -47,12 +47,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--  logo y  publicidad   -->
+
 	<div class="header">
 
 		<div class="header-bottom">
 			<div class="logo" style="margin-left:5px">
 				<a href="index.html"><img src="lgo.png"/></a>
-			    <img style = "margin-left:7%; width: 60%; heigth: 20%"src="pa.png"/>
+
+              <?php
+              require('config.php');
+              $query = "SELECT id, imagen, nombre, posicion from publicidad where posicion = 'arriba' ORDER BY rand() limit 1";
+              $resultado = $sql->query($query);
+              $text = $resultado->fetch_assoc()
+              ?>
+
+			    <img style = "margin-left:7%; width: 60%; heigth: 20%" src=" <?php echo $text['nombre']; ?> "/>
 			</div>
 
 
@@ -75,32 +84,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="text-center">
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					 <li class="active"><a href="index.html">Home</a></li>
-					 <li><a href="sports.html">Deportes</a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-
-					 <li><a href="shortcodes.html">Cultura</a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-
-					 <li><a href="fashion.html">Vanguardia Hoy</a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-
-					 <li><a href="technology.html">Columna</a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-					 <li><a href="shortcodes.html">                             </a></li>
-
-					 <li><a href="technology.html">Varios</a></li>
+					 <li><a href="categorias.php?set=deportes">Deportes </a></li>
+					 <li><a href="categorias.php?set=social">Cultura      </a></li>
+					 <li><a href="categorias.php?set=gobierno">Vanguardia Hoy  </a></li>
+					 <li><a href="categorias.php?set=eventos">Columna      </a></li>
+					 <li><a href="categorias.php?set=varios">Varios       </a></li>
 			<div class="clearfix"></div>
 				</ul>
 				<div class="search">
@@ -122,31 +110,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--  SLIDER -->
 
-
+  <?php
+  require('config.php');
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias ORDER BY id DESC LIMIT 4";
+  $resultado = $sql->query($query);
+  ?>
 
 		<div class="wrap">
 			<div class="col-md-8">
 				<div class="slider">
 					<div class="callbacks_wrap">
 						<ul class="rslides" id="slider">
+       <?php while($text = $resultado->fetch_assoc()){?>							
 							<li>
-								<img src="images/3.jpg" alt="">
+								<img src=" <?php echo $text['imagen']; ?>" WIDTH=260 HEIGHT=200>
 								<div class="caption">
-									<a href="single.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry</a>
+									<a href="single.html"><?php echo $text['titulo_adentro']; ?></a>
 								</div>
 							</li>
-							<li>
-								<img src="images/2.jpg" alt="">
-								<div class="caption">
-									<a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</a>
-								</div>
-							</li>
-							<li>
-								<img src="images/1.jpg" alt="">
-								<div class="caption">
-									<a href="single.html">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</a>
-								</div>
-							</li>
+		  <?php } ?>
 						</ul>
 					</div>
 				</div>
@@ -173,6 +155,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--Dos noticias de deportes -->
+  <?php
+  require('config.php');
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='deportes'";
+  $resultado = $sql->query($query);
+  $text = $resultado->fetch_assoc()
+  ?>
 
 
 <div class="sports-top" style="margin-left: 10px">
@@ -182,28 +170,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/crt2.jpg" alt="" /></a>
+						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>cricket</h6>
-						<a class="power" href="single.html">international Cricket Council President Walks out</a>
-						<p class="date">On Apr 11, 2015</p>
+						<h6>Deportes</h6>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
 			</div>
 
+<?php $text = $resultado->fetch_assoc();?>
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/crt2.jpg" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>cricket</h6>
-						<a class="power" href="single.html">international Cricket Council President Walks out</a>
-						<p class="date">On Apr 11, 2015</p>
+						<h6>Deportes</h6>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
@@ -215,6 +202,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 <!--Dos noticias de cultura -->
 
+  <?php
+  require('config.php');
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='social'";
+  $resultado = $sql->query($query);
+  $text = $resultado->fetch_assoc()
+  ?>
+
 	<div class="s-grid-right">
 		<div class="cricket">
 				<header><h3 class="title-head">Cultura</h3></header>
@@ -222,13 +216,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="s-grid-small">
 					
 					<div class="sc-image">
-						<a href="single.html"><img src="images/fcrt2.jpg" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 
 					<div class="sc-text">
-						<h6>football</h6>
-						<a class="power" href="single.html">international football Council out of World Cup</a>
-						<p class="date">On May 01, 2015</p>
+						<h6>Cultura</h6>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
@@ -236,16 +229,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				</div>
 				
-
+<?php $text = $resultado->fetch_assoc();?>
 				<div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/fcrt3.jpg" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>football</h6>
-						<a class="power" href="single.html">international football Council out of World Cup</a>
-					    <p class="date">On Feb 10, 2015</p>
+						<h6>Cultura</h6>
+						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
@@ -266,6 +258,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- DOS NOTICIAS DE VANGUARDIA -->
 
+  <?php
+  require('config.php');
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='gobierno'";
+  $resultado = $sql->query($query);
+  $text = $resultado->fetch_assoc()
+  ?>
+
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
@@ -273,28 +272,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/crt2.jpg" alt="" /></a>
+						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>  " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>cricket</h6>
-						<a class="power" href="single.html">international Cricket Council President Walks out</a>
-						<p class="date">On Apr 11, 2015</p>
+						<h6>Vangurdia Hoy</h6>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
 			</div>
 
+	<?php $text = $resultado->fetch_assoc();?>		
+
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/crt2.jpg" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>   " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>cricket</h6>
-						<a class="power" href="single.html">international Cricket Council Presidenghiuhiu hoijoijoijokjmklji ujhnijnmoikjmijnijoi jmoijmiojoit Walks out</a>
-						<p class="date">On Apr 11, 2015</p>
+						<h6>Vanguardia Hoy</h6>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
@@ -306,6 +305,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 <!--  DOS NOTICIAS DE COLUMNA    -->
 
+  <?php
+  require('config.php');
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='eventos'";
+  $resultado = $sql->query($query);
+  $text = $resultado->fetch_assoc()
+  ?>
+
+
+
 	<div class="s-grid-right">
 		<div class="cricket">
 				<header><h3 class="title-head">Columna</h3></header>
@@ -313,13 +321,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="s-grid-small">
 					
 					<div class="sc-image">
-						<a href="single.html"><img src="images/fcrt2.jpg" alt="" /></a>
+						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>   " alt="" /></a>
 					</div>
 
 					<div class="sc-text">
-						<h6>football</h6>
-						<a class="power" href="single.html">international football Council out of World Cup</a>
-						<p class="date">On May 01, 2015</p>
+						<h6>Columna</h6>
+						<a class="power" href="single.html"> <?php echo $text['titulo_adentro']; ?>  </a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
@@ -327,16 +334,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				</div>
 				
+<?php $text = $resultado->fetch_assoc();?>		
 
 				<div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/fcrt3.jpg" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?>  " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>football</h6>
-						<a class="power" href="single.html">international football Council out of World Cup</a>
-					    <p class="date">On Feb 10, 2015</p>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
@@ -358,6 +365,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--Dos noticias de varios -->
 
 
+<?php
+  require('config.php');
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='varios'";
+  $resultado = $sql->query($query);
+  $text = $resultado->fetch_assoc()
+  ?>
+
+
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
@@ -365,28 +380,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/crt2.jpg" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>cricket</h6>
-						<a class="power" href="single.html">international Cricket Council President Walks out</a>
-						<p class="date">On Apr 11, 2015</p>
+						<h6>Varios</h6>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
 			</div>
 
+<?php $text = $resultado->fetch_assoc();?>		
+
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="images/crt2.jpg" alt="" /></a>
+						<a href="single.html"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>cricket</h6>
-						<a class="power" href="single.html">international Cricket Council President Walks out</a>
-						<p class="date">On Apr 11, 2015</p>
+						<h6>Varios</h6>
+						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?> </a>
 						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
 					</div>
 					
