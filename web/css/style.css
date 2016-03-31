@@ -408,13 +408,7 @@ a.breaking {
   display: block;
   float: left;
   }
-.rslides img {
-  display: block;
-  height: auto;
-  float: left;
-  width: 100%;
-  border: 0;
-  }
+
 .caption{
 	width: 65%;
 	position: absolute;

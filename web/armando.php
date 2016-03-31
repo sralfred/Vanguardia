@@ -52,8 +52,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--  logo y  publicidad   -->
 
-	<div class="header">
+<div class="header">
 
+		<center>
 		<div class="header-bottom">
 			<div class="logo" style="margin-left:5px">
 				<a href="index.html"><img src="lgo.png"/></a>
@@ -65,10 +66,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               $text = $resultado->fetch_assoc()
               ?>
 
-			    <img style = "margin-left:7%; width: 60%; heigth: 20%" src=" <?php echo $text['nombre']; ?> "/>
+			    <img style = "width: 77%" src=" pa.png "/>
 			</div>
-
-
+		</div>
 
 <!-- categorias  -->
 <div class="text-center">
@@ -120,6 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   $resultado = $sql->query($query);
   ?>
 
+
 		<div class="wrap">
 			<div class="col-md-8">
 				<div class="slider">
@@ -127,7 +128,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="rslides" id="slider">
        <?php while($text = $resultado->fetch_assoc()){?>							
 							<li>
-								<img src=" <?php echo $text['imagen']; ?>" WIDTH=260 HEIGHT=200>
+	
+								<center>		
+								<img src=" <?php echo $text['imagen']; ?>" WIDTH=95% HEIGHT=400>
+								</center>
 								<div class="caption">
 									<a href="single.html"><?php echo $text['titulo_adentro']; ?></a>
 								</div>
@@ -146,10 +150,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- PUBLICIDAD DE LA DERECHA  -->
 
 
-
-			<div class="col-md-4 side-bar">
-			
-							<img height="450" src="pd.png" alt="" />
+<br/>
+			<div>
+			<center>
+							<img style = "width: 30; heigth: 20"  src="pd.png" alt="" />
+            </center>
             </div>
 
 

@@ -124,7 +124,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="rslides" id="slider">
        <?php while($text = $resultado->fetch_assoc()){?>							
 							<li>
+								<div style="width: 30px; height=30px">
 								<img src=" <?php echo $text['imagen']; ?>" WIDTH=260 HEIGHT=200>
+							</div>
 								<div class="caption">
 									<a href="single.html"><?php echo $text['titulo_adentro']; ?></a>
 								</div>
