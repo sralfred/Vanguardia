@@ -42,17 +42,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 			});
 </script>
+
+<link rel="shortcut icon" href="logo.ico" />
+
 </head>
-<body>
+<body bgcolor="#FF0000">
 
 
 <!--  logo y  publicidad   -->
 
-	<div class="header">
+<div class="header">
 
+		<center>
 		<div class="header-bottom">
 			<div class="logo" style="margin-left:5px">
-				<a href="index.html"><img src="lgo.png"/></a>
+				<a href="index.php"><img src="lgo.png"/></a>
 
               <?php
               require('config.php');
@@ -61,10 +65,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               $text = $resultado->fetch_assoc()
               ?>
 
-			    <img style = "margin-left:7%; width: 60%; heigth: 20%" src=" <?php echo $text['nombre']; ?> "/>
+			    <img style = "width: 77%" src=" <?php echo $text['imagen'] ?> "/>
 			</div>
-
-
+		</div>
 
 <!-- categorias  -->
 <div class="text-center">
@@ -116,6 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   $resultado = $sql->query($query);
   ?>
 
+
 		<div class="wrap">
 			<div class="col-md-8">
 				<div class="slider">
@@ -123,9 +127,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="rslides" id="slider">
        <?php while($text = $resultado->fetch_assoc()){?>							
 							<li>
-								<img src=" <?php echo $text['imagen']; ?>" WIDTH=260 HEIGHT=200>
+	
+								<center>	
+								<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">
+									<img src=" <?php echo $text['imagen']; ?>" WIDTH=95% HEIGHT=400>
+								</a>
+								</center>
 								<div class="caption">
-									<a href="single.html"><?php echo $text['titulo_adentro']; ?></a>
+									<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">
+										<?php echo $text['titulo_adentro']; ?>
+									</a>
 								</div>
 							</li>
 		  <?php } ?>
@@ -141,11 +152,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- PUBLICIDAD DE LA DERECHA  -->
 
+              <?php
+              require('config.php');
+              $query = "SELECT id, imagen, nombre, posicion from publicidad where posicion = 'derecha' ORDER BY rand() limit 1";
+              $resultado = $sql->query($query);
+              $text = $resultado->fetch_assoc()
+              ?>
 
-
-			<div class="col-md-4 side-bar">
-			
-							<img height="450" src="pd.png" alt="" />
+<br/>
+			<div>
+			<center>
+							<img style = "width: 30; heigth: 20"  src="<?php echo $text['imagen'] ?>" alt="" />
+            </center>
             </div>
 
 
@@ -163,20 +181,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   ?>
 
 
+
+
+
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
-			<header><h3 class="title-head">Deportes</h3></header>
+			<header><h3 class="title-head"><a href="categorias.php?set=deportes">Deportes</a></h3></header>
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>"/></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">
+						<img src=" <?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Deportes</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -185,13 +207,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <?php $text = $resultado->fetch_assoc();?>
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>"/></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>"/></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Deportes</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>   </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>   </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -211,18 +233,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="s-grid-right">
 		<div class="cricket">
-				<header><h3 class="title-head">Cultura</h3></header>
+				<header><h3 class="title-head"><a href="categorias.php?set=social">Cultura</a></h3></header>
 
 				<div class="s-grid-small">
 					
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 
 					<div class="sc-text">
 						<h6>Cultura</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -232,13 +254,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <?php $text = $resultado->fetch_assoc();?>
 				<div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>" alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Cultura</h6>
-						<a class="power" href="single.html">   <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">   <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -268,17 +290,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
-			<header><h3 class="title-head">Vanguardia Hoy</h3></header>
+			<header><h3 class="title-head"><a href="categorias.php?set=gobierno">Vanguardia Hoy</a></h3></header>
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>  " alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src=" <?php echo $text['imagen']; ?>  " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Vangurdia Hoy</h6>
-						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -288,13 +310,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>   " alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>   " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Vanguardia Hoy</h6>
-						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -316,18 +338,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="s-grid-right">
 		<div class="cricket">
-				<header><h3 class="title-head">Columna</h3></header>
+				<header><h3 class="title-head"><a href="categorias.php?set=eventos">Columna</a></h3></header>
 
 				<div class="s-grid-small">
 					
 					<div class="sc-image">
-						<a href="single.html"><img src=" <?php echo $text['imagen']; ?>   " alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src=" <?php echo $text['imagen']; ?>   " alt="" /></a>
 					</div>
 
 					<div class="sc-text">
 						<h6>Columna</h6>
-						<a class="power" href="single.html"> <?php echo $text['titulo_adentro']; ?>  </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"> <?php echo $text['titulo_adentro']; ?>  </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -338,13 +360,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?>  " alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?>  " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
-						<h6>football</h6>
-						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<h6>Columna/h6>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -360,8 +382,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--NOTICIAS DE VARIOS Y VIDEOS-->
 
-
-
 <!--Dos noticias de varios -->
 
 
@@ -376,17 +396,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
-			<header><h3 class="title-head">Varios</h3></header>
+			<header><h3 class="title-head"><a href="categorias.php?set=varios">Varios</a></h3></header>
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Varios</h6>
-						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?></a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?></a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
@@ -396,69 +416,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
-						<a href="single.html"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
+						<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="<?php echo $text['imagen']; ?> " alt="" /></a>
 					</div>
 					
 					<div class="sc-text">
 						<h6>Varios</h6>
-						<a class="power" href="single.html"><?php echo $text['titulo_adentro']; ?> </a>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
+						<a class="power" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><?php echo $text['titulo_adentro']; ?> </a>
+						<a class="reu" href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>"><img src="images/more.png" alt="" /></a>
 					</div>
 					
 					<div class="clearfix"></div>
 			</div>
 	    </div>
 	</div>
-
-
-<!--Dos videos recientes-->			
-
-
-	<div class="s-grid-right">
-		<div class="cricket">
-				<header><h3 class="title-head">Videos</h3></header>
-
-				<div class="s-grid-small">
-					
-					<div class="sc-image">
-						<a href="single.html"><img src="images/fcrt2.jpg" alt="" /></a>
-					</div>
-
-					<div class="sc-text">
-						<h6>football</h6>
-						<a class="power" href="single.html">international football Council out of World Cup</a>
-						<p class="date">On May 01, 2015</p>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
-					</div>
-					
-					<div class="clearfix"></div>
-				
-				</div>
-				
-
-				<div class="s-grid-small">
-					<div class="sc-image">
-						<a href="single.html"><img src="images/fcrt3.jpg" alt="" /></a>
-					</div>
-					
-					<div class="sc-text">
-						<h6>football</h6>
-						<a class="power" href="single.html">international football Council out of World Cup</a>
-					    <p class="date">On Feb 10, 2015</p>
-						<a class="reu" href="single.html"><img src="images/more.png" alt="" /></a>
-					</div>
-					
-					<div class="clearfix"></div>
-				</div>
-		</div>
-	</div>
-				
-				<div class="clearfix"></div>
-</div>
-
-
-
-
 
 
 
@@ -476,13 +446,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="footer-bottom">
 			<div class="wrap">
 				<div class="copyrights col-md-6">
-					<p> © 2016 Vanguardia Magazine | WebMaster <a href="http://w3layouts.com/">@SrAlfred</a></p>
+					<p> © 2016 Vanguardia Magazine | WebMaster <a href="https://github.com/sralfred?tab=repositories" target="_blank">@SrAlfred</a></p>
 				</div>
 				<div class="footer-social-icons col-md-6">
 					<ul>
-						<li><a class="facebook" href="#"></a></li>
-						<li><a class="twitter" href="#"></a></li>
-						<li><a class="googleplus" href="#"></a></li>
+						<li><a class="facebook" href="https://www.facebook.com/Vanguardia-Magazine-449343441935653/?fref=ts" target="_blank"></a></li>
+						<li><a class="twitter" href="https://twitter.com/magazineLV" target="_blank"></a></li>
+						<li><a class="googleplus" href="https://www.youtube.com/channel/UCP-VkyFmuhLWmY3f3qRc3fA" target="_blank"></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -492,7 +462,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-
+</body>
 
 
 

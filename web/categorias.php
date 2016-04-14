@@ -42,6 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 			});
 </script>
+<link rel="shortcut icon" href="logo.ico" />
 </head>
 <body>
 
@@ -50,9 +51,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="header">
 
+		<center>
 		<div class="header-bottom">
 			<div class="logo" style="margin-left:5px">
-				<a href="index.html"><img src="lgo.png"/></a>
+				<a href="index.php"><img src="lgo.png"/></a>
 
               <?php
               require('config.php');
@@ -61,8 +63,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               $text = $resultado->fetch_assoc()
               ?>
 
-			    <img style = "margin-left:7%; width: 60%; heigth: 20%" src=" <?php echo $text['nombre']; ?> "/>
+			    <img style = "width: 77%" src=" <?php echo $text['imagen'] ?> "/>
 			</div>
+		</div>
 
 
 
@@ -89,6 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <li><a href="categorias.php?set=gobierno">Vanguardia Hoy  </a></li>
 					 <li><a href="categorias.php?set=eventos">Columna      </a></li>
 					 <li><a href="categorias.php?set=varios">Varios       </a></li>
+					 <li><a href="videos.php">Videos       </a></li>
 			<div class="clearfix"></div>
 				</ul>
 				<div class="search">
@@ -118,17 +122,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   ?>
 
 		<div class="wrap">
+						<center><h1>
+
+							<?php 
+								if ($categoria === "social" ) echo "Cultura";
+								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
+								elseif ($categoria === "eventos") echo "Columna";
+								elseif ($categoria === "deportes") echo "Deportes";
+								elseif ($categoria === "varios") echo "Varios";
+								else echo "$categoria";							
+							?>
+
+							<br/></br>
+
+							<h1></center>
 			<div class="col-md-8">
 				<div class="slider">
 					<div class="callbacks_wrap">
 						<ul class="rslides" id="slider">
        <?php while($text = $resultado->fetch_assoc()){?>							
 							<li>
-								<div style="width: 30px; height=30px">
-								<img src=" <?php echo $text['imagen']; ?>" WIDTH=260 HEIGHT=200>
-							</div>
+	
+								<center>
+									<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">
+										<img src=" <?php echo $text['imagen']; ?>" WIDTH=95% HEIGHT=400>
+									</a>
+								</center>
 								<div class="caption">
-									<a href="single.html"><?php echo $text['titulo_adentro']; ?></a>
+									<a href="nota.php?titulo=<?php echo $text['id'];?>&set=<?php echo $text['categoria']; ?>">
+										<?php echo $text['titulo_adentro']; ?>
+									</a>
 								</div>
 							</li>
 		  <?php } ?>
@@ -145,29 +168,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- PUBLICIDAD DE LA DERECHA  -->
 
 
+              <?php
+              require('config.php');
+              $query = "SELECT id, imagen, nombre, posicion from publicidad where posicion = 'derecha' ORDER BY rand() limit 1";
+              $resultado = $sql->query($query);
+              $text = $resultado->fetch_assoc()
+              ?>
 
-			<div class="col-md-4 side-bar">
-			
-							<img height="450" src="pd.png" alt="" />
+
+<br/>
+			<div>
+			<center>
+							<img style = "width: 30; heigth: 20"  src="<?php echo $text['imagen'] ?>" alt="" />
+            </center>
             </div>
-
-
 
 
 
 <!--Dos noticias de deportes -->
   <?php
   require('config.php');
-  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='$categoria' ORDER BY id DESC";
+  $query = "SELECT id, imagen, titulo_adentro, titulo_afuera, texto, categoria FROM noticias WHERE categoria='$categoria' ORDER BY id DESC LIMIT 4,13";
   $resultado = $sql->query($query);
   $text = $resultado->fetch_assoc()
   ?>
-
-
-
-
-
-
 
 
 
@@ -177,6 +201,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="cricket">
 			<header><h3 class="title-head"> 
 
+							Recientes de 
 							<?php 
 								if ($categoria === "social" ) echo "Cultura";
 								elseif ($categoria === "gobierno") echo "Vanguadia Hoy";
@@ -241,7 +266,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="s-grid-right">
 		<div class="cricket">
-				<header><h3 class="title-head"> .  </h3></header>
+				<header><h3 class="title-head"> &nbsp; </h3></header>
 
 				<div class="s-grid-small">
 					
@@ -310,7 +335,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
-			<header><h3 class="title-head"> .</h3></header>
+			<header><h3 class="title-head"> &nbsp; </h3></header>
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
@@ -367,7 +392,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="s-grid-right">
 		<div class="cricket">
-				<header><h3 class="title-head"> .  </h3></header>
+				<header><h3 class="title-head"> &nbsp;  </h3></header>
 
 				<div class="s-grid-small">
 					
@@ -436,7 +461,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="sports-top" style="margin-left: 10px">
 	<div class="s-grid-left">
 		<div class="cricket">
-			<header><h3 class="title-head"> .</h3></header>
+			<header><h3 class="title-head"> &nbsp; </h3></header>
 
 			 <div class="s-grid-small">
 					<div class="sc-image">
@@ -493,7 +518,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="s-grid-right">
 		<div class="cricket">
-				<header><h3 class="title-head"> .  </h3></header>
+				<header><h3 class="title-head"> &nbsp;  </h3></header>
 
 				<div class="s-grid-small">
 					
@@ -575,13 +600,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="footer-bottom">
 			<div class="wrap">
 				<div class="copyrights col-md-6">
-					<p> © 2016 Vanguardia Magazine | WebMaster <a href="http://w3layouts.com/">@SrAlfred</a></p>
+					<p> © 2016 Vanguardia Magazine | WebMaster <a href="https://github.com/sralfred?tab=repositories" target="_blank">@SrAlfred</a></p>
 				</div>
 				<div class="footer-social-icons col-md-6">
 					<ul>
-						<li><a class="facebook" href="#"></a></li>
-						<li><a class="twitter" href="#"></a></li>
-						<li><a class="googleplus" href="#"></a></li>
+						<li><a class="facebook" href="https://www.facebook.com/Vanguardia-Magazine-449343441935653/?fref=ts" target="_blank"></a></li>
+						<li><a class="twitter" href="https://twitter.com/magazineLV" target="_blank"></a></li>
+						<li><a class="googleplus" href="https://www.youtube.com/channel/UCP-VkyFmuhLWmY3f3qRc3fA" target="_blank"></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
